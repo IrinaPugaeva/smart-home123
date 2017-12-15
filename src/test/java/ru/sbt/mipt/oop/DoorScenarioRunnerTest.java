@@ -9,9 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
 import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
-/**
- * Created by user on 15.12.2017.
- */
 public class DoorScenarioRunnerTest {
 
     @Test
