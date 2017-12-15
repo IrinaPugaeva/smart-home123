@@ -12,7 +12,7 @@ public class AlarmSystemTest {
     public void testNewSystemIsOff() {
         AlarmSystem alarmSystem = new AlarmSystem();
         alarmSystem.turnOn();
-        assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getSystemState());
+        assertEquals(AlarmSystemStateEnum.ON, alarmSystem.getSystemState());
     }
 
     @Test
