@@ -1,14 +1,16 @@
 package ru.sbt.mipt.oop;
 
-import org.junit.Test;
+//import org.junit.Test;
 
+
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AlarmSystemTest {
 
     @Test
-    public void testNewSystenIsOff() {
+    public void testNewSystemIsOff() {
         AlarmSystem alarmSystem = new AlarmSystem();
         alarmSystem.turnOn();
         assertEquals(AlarmSystemStateEnum.OFF, alarmSystem.getSystemState());

@@ -4,6 +4,10 @@ import static ru.sbt.mipt.oop.SensorEventType.LIGHT_OFF;
 import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
 public class LightEventProcessor implements EventHandler{
+    /**
+     * @param home
+     * @param event
+     */
     @Override
     public void handle(SmartHome home, SensorEvent event) {
         if (event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) {

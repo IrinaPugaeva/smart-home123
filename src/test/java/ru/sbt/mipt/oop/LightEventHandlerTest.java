@@ -12,7 +12,7 @@ public class LightEventHandlerTest {
 
     @Test
     public void testLightHandle (){
-        LightEventProcessor lightEventHandler = new LightEventProcessor();
+        LightEventProcessor lightEventProcessor = new LightEventProcessor();
         Light light = new Light("1",true);
         Door door = new Door(true,"1");
         //создаем список лампочек и дверей
@@ -24,9 +24,9 @@ public class LightEventHandlerTest {
         SensorEvent newEventOFF = new SensorEvent(LIGHT_OFF, "1");
         SensorEvent newEventON = new SensorEvent(LIGHT_ON, "1");
         //ctrl+D копировать строчку, ctrl+shift и стрелка - передвигать строчку
-        lightEventHandler.handle(home, newEventOFF);
+        lightEventProcessor.handle(home, newEventOFF);
         assertEquals(light.isOn(),false);
-        lightEventHandler.handle(home, newEventON);
+        lightEventProcessor.handle(home, newEventON);
         assertEquals(light.isOn(),true);
 
 
