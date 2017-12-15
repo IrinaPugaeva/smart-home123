@@ -14,7 +14,7 @@ public class AlarmSystemStateOff implements AlarmSystemState{
 
     @Override
     public void turnOn() {
-        systemState.setSystemState(new AlarmSystemStateWaitForPassword(systemState));
+        systemState.setSystemState(new AlarmSystemStateOn(systemState));
     }
 
     @Override

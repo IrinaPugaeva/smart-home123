@@ -16,21 +16,17 @@ import java.util.List;
 
 
 public class Application {
-
-    public Application() throws IOException {
-    }
-
-    public void main(String... args) throws IOException {
+    public void main (String...args) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("Application.xml");
+
+        // считываем состояние дома из файла
+        SmartHome smartHome = ReadHome.getSmartHome("smart-home-1.js");
         /* создание дома */
 
         SensorEventObserver sensorEventObserver = new SensorEventObserver();
         sensorEventObserver.addHandlers();
         sensorEventObserver.observe(smartHome);
     }
-         // считываем состояние дома из файла
-        SmartHome smartHome = ReadHome.getSmartHome("smart-home-1.js");
-
 
         //reflection (переменная типа класса)
         //при помощи рефлекшн можно смотреть и изменять значение переменной private
@@ -39,8 +35,7 @@ public class Application {
         //clazz.getMethods()
 
 
-
-    public static void sendCommand(SensorCommand command) {
+        public static void sendCommand(SensorCommand command) {
         System.out.println("Pretend we're sending command " + command);
     }
 
@@ -52,3 +47,4 @@ public class Application {
         return new SensorEvent(sensorEventType, objectId);
     }
 }
+
