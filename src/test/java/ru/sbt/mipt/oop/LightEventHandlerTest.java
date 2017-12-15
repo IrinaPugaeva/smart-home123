@@ -9,7 +9,6 @@ import static ru.sbt.mipt.oop.SensorEventType.LIGHT_OFF;
 import static ru.sbt.mipt.oop.SensorEventType.LIGHT_ON;
 
 public class LightEventHandlerTest {
-
     @Test
     public void testLightHandle (){
         LightEventProcessor lightEventProcessor = new LightEventProcessor();

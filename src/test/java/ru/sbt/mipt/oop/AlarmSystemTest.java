@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AlarmSystemTest {
-
     @Test
     public void testNewSystemIsOff() {
         AlarmSystem alarmSystem = new AlarmSystem();

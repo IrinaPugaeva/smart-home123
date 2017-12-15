@@ -9,6 +9,7 @@ import static ru.sbt.mipt.oop.SensorEventType.DOOR_CLOSED;
 import static ru.sbt.mipt.oop.SensorEventType.DOOR_OPEN;
 
 public class DoorEventHandlerTest {
+
     @Test
     public void handle(){
         DoorEventProcessor doorEventProcessor = new DoorEventProcessor();
