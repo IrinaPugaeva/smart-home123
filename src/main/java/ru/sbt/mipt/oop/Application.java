@@ -20,16 +20,9 @@ public class Application {
     public Application() throws IOException {
     }
 
-    public static void main(String... args) throws IOException {
+    public void main(String... args) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("Application.xml");
         /* создание дома */
-        List<Light> lights1 = Arrays.asList(new Light("1", false), new Light("2", true));
-        List<Door> doors1 = Arrays.asList(new Door(false, "1"));
-        Room kitchen = new Room(lights1,doors1, "kitchen");
-        List<Light> lights2 = Arrays.asList(new Light("3", true));
-        List<Door> doors2 = Arrays.asList(new Door(true, "2"));
-        Room bathroom = new Room(lights2,doors2, "bathroom");
-        SmartHome smartHome = new SmartHome(Arrays.asList(kitchen, bathroom));
 
         SensorEventObserver sensorEventObserver = new SensorEventObserver();
         sensorEventObserver.addHandlers();
@@ -45,7 +38,7 @@ public class Application {
         //Class clazz = door.getClass();
         //clazz.getMethods()
 
-    }
+
 
     public static void sendCommand(SensorCommand command) {
         System.out.println("Pretent we're sending command " + command);
