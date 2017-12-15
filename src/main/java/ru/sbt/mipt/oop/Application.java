@@ -1,5 +1,7 @@
 package ru.sbt.mipt.oop;
 
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -12,10 +14,15 @@ import java.util.List;
 
 //import static ru.sbt.mipt.oop.SensorEventType.*;
 
+
 public class Application {
 
+    public Application() throws IOException {
+    }
+
     public static void main(String... args) throws IOException {
-        // создание дома
+        ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("Application.xml");
+        /* создание дома */
         List<Light> lights1 = Arrays.asList(new Light("1", false), new Light("2", true));
         List<Door> doors1 = Arrays.asList(new Door(false, "1"));
         Room kitchen = new Room(lights1,doors1, "kitchen");
@@ -28,12 +35,8 @@ public class Application {
         sensorEventObserver.addHandlers();
         sensorEventObserver.observe(smartHome);
     }
-
-    private static SmartHome readHome() throws IOException {
-
-        Gson gson = new Gson();
-        String json = new String(Files.readAllBytes(Paths.get("smart-home-1.js")));
-        return gson.fromJson(json, SmartHome.class);
+         // считываем состояние дома из файла
+        SmartHome smartHome = ReadHome.getSmartHome("smart-home-1.js");
 
 
         //reflection (переменная типа класса)
