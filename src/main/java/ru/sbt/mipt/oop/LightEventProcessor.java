@@ -8,6 +8,7 @@ public class LightEventProcessor implements EventHandler{
      * @param home
      * @param event
      */
+
     @Override
     public void handle(SmartHome home, SensorEvent event) {
         if (event.getType() == LIGHT_ON || event.getType() == LIGHT_OFF) {

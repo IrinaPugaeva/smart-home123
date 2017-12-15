@@ -11,6 +11,7 @@ public class EventHandlerDecorator implements EventHandler {
     }
 
     @Override
+
     public void handle(SmartHome home, SensorEvent event) {
         System.out.println(System.nanoTime() +" start");
         long a = System.nanoTime();
