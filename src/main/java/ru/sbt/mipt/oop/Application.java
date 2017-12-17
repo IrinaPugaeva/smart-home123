@@ -1,31 +1,15 @@
 package ru.sbt.mipt.oop;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.google.gson.Gson;
-
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
-//import java.util.ArrayList;
-//import java.util.List;
-
-//import static ru.sbt.mipt.oop.SensorEventType.*;
 
 
 public class Application {
-    public void main (String...args) throws IOException {
+    public static void main (String...args) throws IOException {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("Application.xml");
-
-        // считываем состояние дома из файла
-        SmartHome smartHome = ReadHome.getSmartHome("smart-home-1.js");
-        /* создание дома */
-
-        SensorEventObserver sensorEventObserver = new SensorEventObserver();
-        sensorEventObserver.addHandlers();
-        sensorEventObserver.observe(smartHome);
+        SmartHome smartHome = ctx.getBean(SmartHome.class);
+        SensorEventObserver observer = ctx.getBean(SensorEventObserver.class);
+        observer.observe(smartHome);
     }
 
         //reflection (переменная типа класса)
@@ -35,7 +19,7 @@ public class Application {
         //clazz.getMethods()
 
 
-        public static void sendCommand(SensorCommand command) {
+    public static void sendCommand(SensorCommand command) {
         System.out.println("Pretend we're sending command " + command);
     }
 

@@ -8,12 +8,15 @@ import static ru.sbt.mipt.oop.Application.getNextSensorEvent;
 public class SensorEventObserver {
     public List<EventHandler> handlers = new ArrayList<>();
 
-    public void addHandlers() {
-        handlers.add(new LightEventProcessor());
-        handlers.add(new DoorEventProcessor());
+    public SensorEventObserver(List<EventHandler> eventHandlers) {
+        handlers = eventHandlers;
     }
 
-    public void observe(SmartHome home){
+    public void addHandlers(EventHandler eventHandler) {
+        handlers.add(eventHandler);
+    }
+
+    public void observe(SmartHome home) {
         SensorEvent event = getNextSensorEvent();
         while (event != null) {
             System.out.println("Got event: " + event);
@@ -21,6 +24,13 @@ public class SensorEventObserver {
                 handler.handle(home, event);
             }
             event = getNextSensorEvent();
+        }
+    }
+
+    public void onEvent(SmartHome smartHome, SensorEvent event) {
+        System.out.println("Got event: " + event.getType());
+        for (EventHandler handler : handlers) {
+            handler.handle(smartHome, event);
         }
     }
 }

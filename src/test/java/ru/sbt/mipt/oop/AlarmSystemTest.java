@@ -1,10 +1,8 @@
 package ru.sbt.mipt.oop;
 
-//import org.junit.Test;
 
 
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AlarmSystemTest {
